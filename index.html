@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartoon Animator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    .header {
+      background: #222;
+      color: white;
+      padding: 18px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .editor {
+      padding: 15px;
+    }
+
+    .canvas {
+      height: 350px;
+      background: white;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 16px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px #ccc;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .timeline {
+      margin-top: 15px;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    .timeline h3 {
+      margin-top: 0;
+    }
+
+    .track {
+      height: 55px;
+      background: #eee;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+    }
+
+    .keyframe {
+      width: 40px;
+      height: 40px;
+      background: #777;
+      margin-right: 8px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    🎬 Cartoon Animator
+  </div>
+
+  <div class="editor">
+
+    <div class="canvas">
+      🎭 आपका Animation Canvas
+    </div>
+
+    <div class="tools">
+      <button>🎭 Character</button>
+      <button>🖼️ Background</button>
+      <button>😀 Emotion</button>
+      <button>🗣️ Dialogue</button>
+      <button>🎥 Camera</button>
+      <button>🔊 Voice</button>
+    </div>
+
+    <div class="timeline">
+      <h3>⏱️ Timeline</h3>
+
+      <div class="track">
+        <div class="keyframe"></div>
+        <div class="keyframe"></div>
+        <div class="keyframe"></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

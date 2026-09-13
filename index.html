@@ -1,128 +1,144 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cartoon Animator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Desi Cartoon Animator</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#eeeeee;
+}
+header{
+  background:#222;
+  color:white;
+  padding:14px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
+.toolbar{
+  display:flex;
+  gap:8px;
+  padding:10px;
+  background:white;
+  overflow-x:auto;
+}
+button{
+  border:0;
+  border-radius:8px;
+  padding:10px 14px;
+  background:#333;
+  color:white;
+  font-size:15px;
+}
+button:active{transform:scale(.96)}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-    }
+#stage{
+  margin:10px auto;
+  width:94%;
+  height:400px;
+  background:#9bd7ff;
+  border:4px solid #222;
+  border-radius:10px;
+  position:relative;
+  overflow:hidden;
+}
 
-    .header {
-      background: #222;
-      color: white;
-      padding: 18px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-    }
+#ground{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:100px;
+  background:#69b34c;
+}
 
-    .editor {
-      padding: 15px;
-    }
+#character{
+  position:absolute;
+  bottom:70px;
+  left:42%;
+  font-size:90px;
+  cursor:move;
+  user-select:none;
+  transition:transform .2s;
+}
 
-    .canvas {
-      height: 350px;
-      background: white;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: #777;
-      margin-bottom: 15px;
-    }
+.timeline{
+  background:white;
+  margin:10px;
+  padding:12px;
+  border-radius:10px;
+}
 
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
+.track{
+  height:45px;
+  background:#ddd;
+  border-radius:6px;
+  margin-top:8px;
+  position:relative;
+}
 
-    button {
-      border: none;
-      border-radius: 10px;
-      padding: 16px;
-      font-size: 16px;
-      background: #ffffff;
-      box-shadow: 0 2px 6px #ccc;
-    }
-
-    button:active {
-      transform: scale(0.97);
-    }
-
-    .timeline {
-      margin-top: 15px;
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-    }
-
-    .timeline h3 {
-      margin-top: 0;
-    }
-
-    .track {
-      height: 55px;
-      background: #eee;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      padding: 8px;
-    }
-
-    .keyframe {
-      width: 40px;
-      height: 40px;
-      background: #777;
-      margin-right: 8px;
-      border-radius: 6px;
-    }
-  </style>
+.key{
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#ff9800;
+  border-radius:50%;
+  top:13px;
+  left:20px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="header">
-    🎬 Cartoon Animator
+<header>🎬 Desi Cartoon Animator</header>
+
+<div class="toolbar">
+  <button onclick="addCharacter()">👤 Character</button>
+  <button onclick="moveCharacter()">➡️ Move</button>
+  <button onclick="jumpCharacter()">⬆️ Jump</button>
+  <button onclick="resetCharacter()">🔄 Reset</button>
+</div>
+
+<div id="stage">
+  <div id="ground"></div>
+  <div id="character">🧑</div>
+</div>
+
+<div class="timeline">
+  <b>🎞️ Timeline</b>
+  <div class="track">
+    <div class="key"></div>
   </div>
+</div>
 
-  <div class="editor">
+<script>
+const character=document.getElementById("character");
 
-    <div class="canvas">
-      🎭 आपका Animation Canvas
-    </div>
+function addCharacter(){
+  character.style.display="block";
+}
 
-    <div class="tools">
-      <button>🎭 Character</button>
-      <button>🖼️ Background</button>
-      <button>😀 Emotion</button>
-      <button>🗣️ Dialogue</button>
-      <button>🎥 Camera</button>
-      <button>🔊 Voice</button>
-    </div>
+function moveCharacter(){
+  character.style.left="65%";
+}
 
-    <div class="timeline">
-      <h3>⏱️ Timeline</h3>
+function jumpCharacter(){
+  character.style.transform="translateY(-100px)";
+  setTimeout(()=>{
+    character.style.transform="translateY(0)";
+  },500);
+}
 
-      <div class="track">
-        <div class="keyframe"></div>
-        <div class="keyframe"></div>
-        <div class="keyframe"></div>
-      </div>
-    </div>
-
-  </div>
+function resetCharacter(){
+  character.style.left="42%";
+  character.style.transform="translateY(0)";
+}
+</script>
 
 </body>
 </html>

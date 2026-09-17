@@ -1,0 +1,10 @@
+{
+  "name": "Desi Cartoon Animator",
+  "short_name": "Cartoon Animator",
+  "description": "A simple cartoon animation app",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#222222",
+  "orientation": "portrait"
+}
